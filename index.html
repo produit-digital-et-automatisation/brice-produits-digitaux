@@ -1,64 +1,214 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vitrine de Brice - Produits Digitaux</title>
   <style>
+    /* Reset simple */
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fa;
       margin: 0;
-      padding: 20px;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    h1 {
-      text-align: center;
-      color: #007acc;
+
+    header {
+      background-color: #007acc;
+      color: white;
+      padding: 20px 40px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #cce6ff;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .grid-products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    @media (max-width: 992px) {
+      .grid-products {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .product {
       background-color: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px auto;
-      max-width: 600px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
     }
+
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
     .product h2 {
       margin-top: 0;
-      color: #444;
+      font-size: 1.3rem;
+      color: #005f99;
     }
+
+    .product p {
+      flex-grow: 1;
+      margin: 12px 0 20px;
+      line-height: 1.4;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
     .btn {
       display: inline-block;
-      padding: 10px 20px;
-      margin-top: 15px;
+      padding: 12px 20px;
       background-color: #007acc;
       color: #fff;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-align: center;
       transition: background-color 0.3s ease;
+      user-select: none;
     }
+
     .btn:hover {
       background-color: #005f99;
+    }
+
+    footer {
+      background-color: #007acc;
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      box-shadow: 0 -3px 6px rgba(0,0,0,0.1);
+    }
+
+    footer a {
+      color: #cce6ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Bienvenue sur ma vitrine digitale</h1>
 
-  <div class="product">
-    <h2>📘 Titre de ton premier produit</h2>
-    <p>Voici une courte description de ce produit digital : ce qu’il apporte, à qui il s’adresse, etc.</p>
-    <a href="https://gumroad.com/l/ton-produit" target="_blank" class="btn">Acheter maintenant</a>
-  </div>
+  <header>
+    <h1>Vitrine Digitale de Brice</h1>
+    <nav>
+      <a href="#produits">Produits</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <div class="product">
-    <h2>📙 Titre du second produit</h2>
-    <p>Description de ton second produit. Tu peux y mettre un guide, un template Notion, une formation, etc.</p>
-    <a href="https://payhip.com/b/ton-produit" target="_blank" class="btn">Acheter maintenant</a>
-  </div>
+  <main>
+    <section id="produits" class="grid-products">
+      <article class="product">
+        <h2>📘 Guide Nettoyage Windows 10 & 11</h2>
+        <p>Optimisez et accélérez votre PC avec ce guide complet et facile à suivre.</p>
+        <a href="https://gumroad.com/l/ton-produit1" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>⚙️ Installation n8n sous Linux Mint</h2>
+        <p>Apprenez à installer n8n, un outil d’automatisation puissant, étape par étape.</p>
+        <a href="https://payhip.com/b/ton-produit2" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>📝 Template Notion Productivité</h2>
+        <p>Boostez votre organisation avec ce template prêt à l’emploi pour Notion.</p>
+        <a href="https://gumroad.com/l/ton-produit3" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>📊 Dashboard Automatisation</h2>
+        <p>Un dashboard prêt à l’emploi pour suivre et automatiser vos tâches quotidiennes.</p>
+        <a href="https://payhip.com/b/ton-produit4" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>📚 Formation Bases de l’IA</h2>
+        <p>Découvrez les fondamentaux de l’intelligence artificielle et ses applications.</p>
+        <a href="https://gumroad.com/l/ton-produit5" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>🔧 Scripts d’Automatisation</h2>
+        <p>Collection de scripts pour automatiser vos workflows répétitifs facilement.</p>
+        <a href="https://payhip.com/b/ton-produit6" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>💡 E-book Stratégies Digitales</h2>
+        <p>Guide complet pour développer votre présence en ligne et votre business digital.</p>
+        <a href="https://gumroad.com/l/ton-produit7" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>🖼 Pack Templates Design</h2>
+        <p>Des modèles graphiques modernes et personnalisables pour vos projets digitaux.</p>
+        <a href="https://payhip.com/b/ton-produit8" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>🎥 Tutoriel Vidéo Automatisation</h2>
+        <p>Apprenez à créer des automatisations avancées en vidéo, pas à pas.</p>
+        <a href="https://gumroad.com/l/ton-produit9" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+      <article class="product">
+        <h2>📱 Guide Marketing Mobile</h2>
+        <p>Techniques et astuces pour promouvoir efficacement vos produits sur mobile.</p>
+        <a href="https://payhip.com/b/ton-produit10" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
+      </article>
+    </section>
+  </main>
 
-  <!-- Ajoute autant de blocs <div class="product"> que tu veux ici -->
+  <footer id="contact">
+    <p>© 2025 Brice — Contactez-moi : <a href="mailto:brice.email@example.com">brice.email@example.com</a></p>
+  </footer>
+
 </body>
 </html>
-
