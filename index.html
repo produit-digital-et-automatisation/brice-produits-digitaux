@@ -26,27 +26,78 @@
       padding: 20px 40px;
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
     }
 
-    header h1 {
-      margin: 0;
+    .header-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+    }
+
+    /* Logo SVG container */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .logo svg {
+      width: 40px;
+      height: 40px;
+      fill: white;
+    }
+
+    .logo-text {
       font-weight: 700;
-      font-size: 1.8rem;
+      font-size: 1.6rem;
+      letter-spacing: 2px;
+      user-select: none;
+      color: white;
+    }
+
+    /* Header title centered */
+    header h1 {
+      margin: 20px 0 10px;
+      font-weight: 700;
+      font-size: 2.2rem;
       letter-spacing: 1px;
+      text-align: center;
+      user-select: none;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 25px;
       font-weight: 600;
       transition: color 0.3s ease;
+      user-select: none;
     }
 
     nav a:hover {
       color: #cce6ff;
+    }
+
+    /* Search input centered below title */
+    #searchInput {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 25px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
     main {
@@ -139,16 +190,45 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Responsive adjustments for header */
+    @media (max-width: 600px) {
+      .header-top {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
+    <div class="header-top">
+      <div class="logo" aria-label="Logo de Brice">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+          <circle cx="32" cy="32" r="30" fill="#005f99"/>
+          <text x="32" y="40" font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif" font-size="32" fill="white" font-weight="700" text-anchor="middle" dominant-baseline="middle">B</text>
+        </svg>
+        <span class="logo-text">Brice</span>
+      </div>
+      <nav>
+        <a href="#produits">Produits</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
     <h1>Vitrine Digitale de Brice</h1>
-    <nav>
-      <a href="#produits">Produits</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Rechercher un produit..."
+      aria-label="Recherche produits"
+    />
   </header>
 
   <main>
@@ -181,34 +261,4 @@
       <article class="product">
         <h2>🔧 Scripts d’Automatisation</h2>
         <p>Collection de scripts pour automatiser vos workflows répétitifs facilement.</p>
-        <a href="https://payhip.com/b/ton-produit6" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
-      </article>
-      <article class="product">
-        <h2>💡 E-book Stratégies Digitales</h2>
-        <p>Guide complet pour développer votre présence en ligne et votre business digital.</p>
-        <a href="https://gumroad.com/l/ton-produit7" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
-      </article>
-      <article class="product">
-        <h2>🖼 Pack Templates Design</h2>
-        <p>Des modèles graphiques modernes et personnalisables pour vos projets digitaux.</p>
-        <a href="https://payhip.com/b/ton-produit8" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
-      </article>
-      <article class="product">
-        <h2>🎥 Tutoriel Vidéo Automatisation</h2>
-        <p>Apprenez à créer des automatisations avancées en vidéo, pas à pas.</p>
-        <a href="https://gumroad.com/l/ton-produit9" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
-      </article>
-      <article class="product">
-        <h2>📱 Guide Marketing Mobile</h2>
-        <p>Techniques et astuces pour promouvoir efficacement vos produits sur mobile.</p>
-        <a href="https://payhip.com/b/ton-produit10" target="_blank" class="btn" rel="noopener">Acheter maintenant</a>
-      </article>
-    </section>
-  </main>
-
-  <footer id="contact">
-    <p>© 2025 Brice — Contactez-moi : <a href="mailto:brice.email@example.com">brice.email@example.com</a></p>
-  </footer>
-
-</body>
-</html>
+        <a
